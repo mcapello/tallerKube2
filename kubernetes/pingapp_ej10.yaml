@@ -12,6 +12,8 @@ metadata:
   name: pingapp
   labels:
     app: pingapp
+  annotations:
+    dev.okteto.com/auto-ingress: "true"
 spec:
   ports:
    - port: 8080
@@ -44,21 +46,21 @@ spec:
         envFrom:
           - configMapRef:
               name: pingapp-configmap
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: pingapp
-  annotations:
-    dev.okteto.com/generate-host: "true"
-spec:
-  rules:
-  - http:
-      paths:
-      - path: /pingapp
-        pathType: Prefix
-        backend:
-          service:
-            name: pingapp
-            port:
-              number: 8080
+#---
+#apiVersion: networking.k8s.io/v1
+#kind: Ingress
+#metadata:
+#  name: pingapp
+#  annotations:
+#    dev.okteto.com/generate-host: "true"
+#spec:
+#  rules:
+#  - http:
+#      paths:
+#      - path: /pingapp
+#        pathType: Prefix
+#        backend:
+#          service:
+#            name: pingapp
+#            port:
+#              number: 8080
