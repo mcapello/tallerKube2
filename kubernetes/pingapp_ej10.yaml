@@ -1,4 +1,11 @@
 apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    common: curso-tarea
+  name: curso-tarea
+---
+apiVersion: v1
 kind: ConfigMap
 metadata:
   name: pingapp-configmap
