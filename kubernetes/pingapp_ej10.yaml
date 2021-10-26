@@ -14,7 +14,9 @@ metadata:
     app: pingapp
 spec:
   ports:
-   - port: 4567
+   - port: 8080
+     protocol: TCP
+     targetPort: 4567
   selector:
    app: pingapp
 ---
@@ -59,4 +61,4 @@ spec:
           service:
             name: pingapp
             port:
-              number: 80
+              number: 8080
