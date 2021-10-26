@@ -59,4 +59,4 @@ spec:
           service:
             name: pingapp
             port:
-              number: 4567
+              number: 80
